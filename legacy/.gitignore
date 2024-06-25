@@ -1,0 +1,5 @@
+__pycache__/
+*.sw*
+.ipynb_checkpoints/
+logs/
+notebooks/.ipynb_checkpoints/

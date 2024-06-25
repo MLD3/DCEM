@@ -1,0 +1,68 @@
+bootstrap: 100
+experimental_variables:
+  k:
+  - 0.25
+  - 0.3333333333333333
+  - 0.5
+  - 1.0
+  - 2.0
+  - 3.0
+  - 4.0
+  prevalence_disparity:
+  - 0.25
+  - 0.3333333333333333
+  - 0.5
+  - 1.0
+  target_prevalence:
+  - 0.25
+  testing_disparity:
+  - 0.25
+  - 0.3333333333333333
+  - 0.5
+  - 1.0
+  - 2.0
+  - 3.0
+  - 4.0
+model_hparams:
+  SELFModel:
+    alpha: 0.9
+    max_iters: 300
+    mean_teacher_alpha: 0.999
+    no_filter_positives: true
+    noise_var: 0.05
+    reg: 4.0
+    self_patience: 1
+  shared:
+    epochs: 1000
+    lr: 0.001
+    optim_kwargs: {}
+    optimizer: Adam
+    weight_decay: 0.0
+models:
+- SELFModel
+n: 10000
+n_cpus: 8
+name: rerun_self_phase240
+other_sim_kwargs:
+  label_decision_fn0:
+    kwargs:
+      period: 0.5
+      translate: 240
+    name: SpinnySinewave
+  label_decision_fn1:
+    kwargs:
+      period: 0.5
+      translate: 240
+    name: SpinnySinewave
+  label_hardness_0: 10
+  label_hardness_1: 10
+  max_value: 1000.0
+  min_value: -1000.0
+  test_decision_fn0:
+    kwargs:
+      m: 1.0
+    name: Linear
+  test_decision_fn1:
+    kwargs:
+      m: 1.0
+    name: Linear

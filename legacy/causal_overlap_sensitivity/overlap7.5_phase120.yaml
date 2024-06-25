@@ -1,0 +1,59 @@
+bootstrap: 0
+experimental_variables:
+  k:
+  - 1.0
+  - 2.0
+  - 0.5
+  prevalence_disparity:
+  - 0.5
+  target_prevalence:
+  - 0.25
+  testing_disparity:
+  - 2.0
+  - 1.0
+  - 0.5
+model_hparams:
+  DCEMModel:
+    em_its: 50
+    em_patience: 3
+    m_step_warm_start: true
+    propensity_lr: 0.001
+  shared:
+    epochs: 1000
+    lr: 0.001
+    optimizer: Adam
+    weight_decay: 0.0
+models:
+- TestedOnlyModel
+- GroupDependentTestedOnlyModel
+- ReweightedModel
+- DCEMModel
+- CrossFitDRModel
+n: 10000
+n_cpus: 0
+name: overlap_sen7.5_20240322_phase120
+other_sim_kwargs:
+  label_decision_fn0:
+    kwargs:
+      period: 0.5
+      translate: 120
+    name: SpinnySinewave
+  label_decision_fn1:
+    kwargs:
+      period: 0.5
+      translate: 120
+    name: SpinnySinewave
+  label_hardness_0: 10
+  label_hardness_1: 10
+  max_value: 1000.0
+  min_value: -1000.0
+  test_decision_fn0:
+    kwargs:
+      m: 1.0
+    name: Linear
+  test_decision_fn1:
+    kwargs:
+      m: 1.0
+    name: Linear
+  threshold_hardness_0: 7.5
+  threshold_hardness_1: 7.5

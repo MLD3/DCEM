@@ -1,0 +1,9 @@
+[submodule "DivideMix"]
+	path = DivideMix
+	url = https://github.com/LiJunnan1992/DivideMix
+[submodule "mimic_sepsis"]
+	path = mimic_sepsis
+	url = https://github.com/microsoft/mimic_sepsis/
+[submodule "I2_Sepsis"]
+	path = I2_Sepsis
+	url = git@github.com:mhofford/I2_Sepsis.git
