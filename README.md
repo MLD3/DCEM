@@ -45,6 +45,8 @@ Enter DCEM: our method leverages variables that we assume do not affect the outc
 
 **Issues/bugs.** All models are wrong; some are useful. Sadly, the same is not true of code. Please open an issue to discuss any potential bugs!
 
+Special thanks to [Gregory Kondas](https://gkondas.github.io/) for help with testing the code!
+
 ## Contact
 
 Please reach out to `ctrenton` at `umich` dot `edu` or file a Github issue if you have any questions about our work. Thank you!
