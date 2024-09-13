@@ -8,7 +8,7 @@ We have released this repository as-is for reproducibility. Note that this repo 
 
 ### Installation
 
-Simply run `pip install -r requirements.txt`. Note that we used **Python 3.9** for all experiments.
+Simply run `pip install -r requirements.txt`. Note that we used **Python 3.9.16** for all experiments.
 
 ### Main command 
 

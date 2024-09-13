@@ -74,9 +74,23 @@ SEPSIS_DICT = {
 
 }
 
-SEPSIS_PATH = os.path.join(SEPSIS_DICT[socket.gethostname()], SEPSIS_FNAME)
+HOSTNAME = socket.gethostname()
+if HOSTNAME in SEPSIS_DICT:
+    SEPSIS_PATH = os.path.join(SEPSIS_DICT[HOSTNAME], SEPSIS_FNAME)
+else:
+    SEPSIS_PATH = None # or, if you're only running this on one machine, set this manually
 
-EXPERIMENT_RESULTS_DIR = RESULTS_DICT[socket.gethostname()]
+if SEPSIS_PATH is None or not os.path.isfile(SEPSIS_PATH):
+    warnings.warn(f"Note that the file specified by `SEPSIS_PATH` ({SEPSIS_PATH}) does not exist. Check that your machine hostname is in `SEPSIS_DICT` and associated with an existing directory, or set `SEPSIS_PATH` in `experiments.py` manually. This is OK if you are running synthetic-data experiments only, but will throw an error for the sepsis task.") 
+
+
+if HOSTNAME in RESULTS_DICT:
+    EXPERIMENT_RESULTS_DIR = os.path.join(RESULTS_DICT[HOSTNAME])
+else:
+    EXPERIMENT_RESULTS_DIR = None # or, if you're only running this on one machine, set this manually
+if EXPERIMENT_RESULTS_DIR is None:
+    warnings.warn("Experiment results directory specified by `EXPERIMENT_RESULTS_DIR` ({EXPERIMENT_RESULTS_DIR}) has not been specified in `RESULTS_DICT`. Check that your machine hostname is in `RESULTS_DICT` and associated with your desired results path, or set `EXPERIMENT_RESULTS_DIR` in `experiments.py` manually.")
+
 PROJECT_NAME = "mitigating_disparate_censorship"
 
 def get_dummy_experiment_manager():
